@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Приставка PS6",
+      "vendor": "011",
+      "price": "5054",
+      "manufacturer": "Sony",
+      "category": 2,
+      "weight": 2,
+      "amount": 101
+    },
+    {
+      "id": 3,
+      "name": "Galaxy S100",
+      "vendor": "0545",
+      "price": "100000",
+      "manufacturer": "Samsung",
+      "category": 4,
+      "weight": 0.5,
+      "amount": 50,
+      "edit": false
+    },
+    {
+      "id": 9,
+      "name": "1",
+      "vendor": "1",
+      "price": 1,
+      "manufacturer": "1",
+      "weight": 1,
+      "amount": 7,
+      "category": "2",
+      "edit": false
+    },
+    {
+      "id": 10,
+      "name": "Приветик",
+      "vendor": "Я",
+      "price": 54544,
+      "manufacturer": "Я",
+      "weight": 70870,
+      "amount": 12,
+      "category": 1
+    },
+    {
+      "id": 11,
+      "name": "Большой стул",
+      "vendor": "0021",
+      "price": 1500,
+      "manufacturer": "Большой полосатый мух",
+      "weight": 4,
+      "amount": 20,
+      "category": 1
+    },
+    {
+      "id": 12,
+      "name": "ляля книга",
+      "vendor": "4234",
+      "price": 1000,
+      "manufacturer": "книжный клуб",
+      "weight": 3,
+      "amount": 40,
+      "category": 3
+    },
+    {
+      "id": 13,
+      "name": "12345",
+      "vendor": "1234",
+      "price": 1235,
+      "manufacturer": "1234",
+      "weight": 23,
+      "amount": 255,
+      "category": 2
+    }
+  ]
+}

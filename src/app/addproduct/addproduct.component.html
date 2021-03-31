@@ -1,0 +1,41 @@
+<form [formGroup]="addForm">
+    <div class="row mb-3">
+        <div class="col-12 mb-3 mt-3">
+            <h5>Добавить товар</h5>
+        </div>
+        <div class="col-4">
+            <input type="text" class="form-control" placeholder="Наименование" formControlName="name" />
+        </div>
+        <div class="col-4">
+            <input type="text" class="form-control" placeholder="Артикул" formControlName="vendor" />
+        </div>
+        <div class="col-4">
+            <input type="number" class="form-control" placeholder="Цена" formControlName="price" />
+        </div>
+        <div class="col-4 mt-2">
+            <input type="text" class="form-control" placeholder="Производитель" formControlName="manufacturer" />
+        </div>
+        <div class="col-4 mt-2">
+            <input type="number" class="form-control" placeholder="Вес" formControlName="weight" />
+        </div>
+        <div class="col-4 mt-2">
+            <input type="number" class="form-control" placeholder="Количество" formControlName="amount" />
+        </div>
+        <div class="col-12 mt-2">
+            <select class="custom-select" formControlName="category">
+            <option [ngValue]="1">Мебель</option>
+            <option [ngValue]="2">Техника</option>
+            <option [ngValue]="3">Книги</option>
+            <option [ngValue]="4">Телефоны</option>
+          </select>
+        </div>
+        <div class="col-12 mt-1">
+            <button class="btn btn-outline-secondary btn-sm" [disabled]="addForm.invalid" (click)="addProduct()">
+              Добавить
+            </button>
+            <div *ngIf="addForm.invalid" class="alert alert-secondary">
+                Заполните все поля верно
+            </div>
+        </div>
+    </div>
+</form>

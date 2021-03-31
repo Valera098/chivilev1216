@@ -1,0 +1,101 @@
+<ng-container>
+    <h1 *ngIf="category == 1">Мебель</h1>
+    <h1 *ngIf="category == 2">Техника</h1>
+    <h1 *ngIf="category == 3">Книги</h1>
+    <h1 *ngIf="category == 4">Телефоны</h1>
+    <div class="instruments col-4">
+        <span class="selection">Сортировать по:</span>
+        <form [formGroup]='sortForm'>
+            <select formControlName="sortType" class="custom-select" (click)="currentInstrument() ">
+        <option [ngValue]='"higherPrice"'>
+         возрастанию цены
+        </option>
+        <option [ngValue]='"lowerPrice"'>
+         убыванию цены
+        </option>
+        <option [ngValue]='"higherAmount"'>
+         возрастанию кол-ва
+        </option>
+        <option [ngValue]='"lowerAmount"'>
+         убыванию кол-ва
+        </option>
+      </select>
+        </form>
+    </div>
+    <div class="filter" *ngIf="!instruments">
+        <div class="col-12 mt-5">
+            <span>Фильтр по количеству</span>
+        </div>
+        <div class="col-4">
+            <input type="number" class="form-control" placeholder="Количество" [(ngModel)]="searchStr" />
+        </div>
+    </div>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Название</th>
+                <th scope="col">Вес</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Категория</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="
+          let product of products
+            | category: category
+            | sortBy: sortType
+            | productsFilter: searchStr
+        ">
+                <th>{{ product.id }}</th>
+                <td *ngIf="!product.edit">{{ product.name }}</td>
+                <td *ngIf="!product.edit">{{ product.weight }}</td>
+                <td *ngIf="!product.edit">{{ product.price }}</td>
+                <td *ngIf="!product.edit">{{ product.amount }}
+                                          <div class="navbar-expand"><button class="btn-1 btn-success" (click)="increaseProductAmount(product)">+</button>
+                                          <button class="btn-1 btn-danger" (click)="decreaseProductAmount(product)">-</button></div>
+                </td>
+                <td *ngIf="!product.edit">{{ ['Мебель','Техника','Книги','Телефоны'][product.category-1] }}</td>
+
+
+                <td *ngIf="product.edit">
+                    <input type="text" [(ngModel)]="product.name" />
+                </td>
+                <td *ngIf="product.edit">
+                    <input type="text" [(ngModel)]="product.weight" />
+                </td>
+                <td *ngIf="product.edit">
+                    <input type="text" [(ngModel)]="product.price" />
+                </td>
+                <td *ngIf="product.edit">
+                    <input type="text" [(ngModel)]="product.amount" />
+                </td>
+                <td *ngIf="product.edit">
+                    <select  [(ngModel)]="product.category">
+                      <option value="1">Мебель</option>
+                      <option value="2">Техника</option>
+                      <option value="3">Книги</option>
+                      <option value="4">Телефоны</option>
+                    </select>
+                </td>
+                <td *ngIf="product.edit">
+                    <input type="text" [(ngModel)]="product.vendor" />
+                </td>
+                <td *ngIf="product.edit">
+                    <input type="text" [(ngModel)]="product.manufacturer" />
+                </td>
+                <td>
+                    <button class="btn btn-outline-primary btn-sm" (click)="editThisProduct(product)">
+                      Изменить
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" (click)="deleteThisProduct(product.id)">
+                      Удалить
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
